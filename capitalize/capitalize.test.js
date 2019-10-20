@@ -25,4 +25,3 @@ describe('Tests for capitalize', () => {
     expect(capitalize('12345678')).toBe('12345678');
   });
 });
-
