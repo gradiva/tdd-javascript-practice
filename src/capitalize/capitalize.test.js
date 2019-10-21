@@ -1,6 +1,6 @@
 import { capitalize } from './capitalize';
 
-describe.skip('Tests for capitalize', () => {
+describe('Tests for capitalize', () => {
   it('should capitalize lowercase to uppercase', () => {
     expect(capitalize('leticia')).toBe('Leticia');
   });

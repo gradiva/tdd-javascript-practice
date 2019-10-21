@@ -1,4 +1,6 @@
-import { add, substract, divide, multiply } from './calculator';
+import {
+  add, substract, divide, multiply,
+} from './calculator';
 
 describe('Tests for calculator', () => {
   it('should add two numbers', () => {

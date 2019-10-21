@@ -1,6 +1,6 @@
 import { reverseString } from './reverseString';
 
-describe.skip('Tests for reverseString', () => {
+describe('Tests for reverseString', () => {
   it('should reverse a word', () => {
     expect(reverseString('leticia')).toBe('aicitel');
   });
