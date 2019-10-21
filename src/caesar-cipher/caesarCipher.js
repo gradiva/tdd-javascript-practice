@@ -4,29 +4,25 @@ const upperCaseAlphabet = lowerCaseAlphabet.toUpperCase();
 // https://web.archive.org/web/20090717035140if_/javascript.about.com/od/problemsolving/a/modulobug.htm
 const mod = (a, n) => ((a % n) + n) % n;
 
-const shiftChar = (char, shiftFactor) => {
-  let index = lowerCaseAlphabet.indexOf(char);
+const shiftCharByCharset = ({ char, shiftFactor, charset }) => {
+  const index = charset.indexOf(char);
 
   if (index !== -1) {
-    const newIndex = mod(index + shiftFactor, lowerCaseAlphabet.length);
+    const newIndex = mod(index + shiftFactor, charset.length);
 
-    return lowerCaseAlphabet[newIndex];
+    return charset[newIndex];
   }
 
-  index = upperCaseAlphabet.indexOf(char);
-
-  if (index !== -1) {
-    const newIndex = mod(index + shiftFactor, upperCaseAlphabet.length);
-
-    return upperCaseAlphabet[newIndex];
-  }
-
-  return char;
+  return undefined;
 };
 
 export const caesarCipher = (input, shiftFactor = 1) => {
   const chars = input.split('');
-  const shiftedChars = chars.map((char) => shiftChar(char, shiftFactor));
+  const shiftedChars = chars.map((char) => (
+    shiftCharByCharset({ char, shiftFactor, charset: lowerCaseAlphabet })
+    || shiftCharByCharset({ char, shiftFactor, charset: upperCaseAlphabet })
+    || char
+  ));
 
   return shiftedChars.join('');
 };
