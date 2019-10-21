@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true
   },
   extends: [
     'airbnb-base',
@@ -15,5 +16,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    "import/prefer-default-export": "off"
   },
 };
