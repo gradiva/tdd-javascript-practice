@@ -1,18 +1,23 @@
 const lowerCaseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
 const upperCaseAlphabet = lowerCaseAlphabet.toUpperCase();
 
-const shiftChar = (char, shiftFactor) => {
-  const lowerCaseAlphabetIndex = lowerCaseAlphabet.indexOf(char);
+// https://web.archive.org/web/20090717035140if_/javascript.about.com/od/problemsolving/a/modulobug.htm
+const mod = (a, n) => ((a % n) + n) % n;
 
-  if (lowerCaseAlphabet !== -1) {
-    const newIndex = (lowerCaseAlphabetIndex + shiftFactor) % lowerCaseAlphabet.length;
+const shiftChar = (char, shiftFactor) => {
+  let index = lowerCaseAlphabet.indexOf(char);
+
+  if (index !== -1) {
+    const newIndex = mod(index + shiftFactor, lowerCaseAlphabet.length);
+
     return lowerCaseAlphabet[newIndex];
   }
 
-  const upperCaseAlphabetIndex = upperCaseAlphabet.indexOf(char);
+  index = upperCaseAlphabet.indexOf(char);
 
-  if (upperCaseAlphabet !== -1) {
-    const newIndex = (upperCaseAlphabetIndex + shiftFactor) % upperCaseAlphabet.length;
+  if (index !== -1) {
+    const newIndex = mod(index + shiftFactor, upperCaseAlphabet.length);
+
     return upperCaseAlphabet[newIndex];
   }
 
