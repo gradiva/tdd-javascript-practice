@@ -3,7 +3,7 @@ import { analyze } from './analyze';
 describe('Tests for analyze array', () => {
   it('should return the correct values for array 1', () => {
     expect(analyze([1, 1, 2, 3, 5, 8])).toBe({
-      average: 20,
+      average: 3,
       min: 1,
       max: 8,
       length: 6,
@@ -12,7 +12,7 @@ describe('Tests for analyze array', () => {
 
   it('should return the correct values for array 2', () => {
     expect(analyze([1, 5, 5, 25, 125, 3125])).toBe({
-      average: 20,
+      average: 548,
       min: 1,
       max: 3125,
       length: 6,
